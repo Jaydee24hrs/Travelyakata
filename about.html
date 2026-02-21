@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Travel Yakata</title>
+    <!-- <link rel="stylesheet" href="css/style.css"/> -->
+    <link rel="stylesheet" href="css/About.css"/>
+</head>
+<body>
+
+
+<!-- Premium Circular Preloader -->
+<div class="preloader">
+  <div class="spinner"></div>
+</div>
+
+<header class="navbar fade-down">
+    <span class="logos">
+        <img src="./img/logo.png" alt="Logo" />
+    </span>
+    <div class="nav-and-country">
+        <nav id="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="pj.html">Private-Jets</a>
+            <a href="http://tyktt.com/">Affilates</a>
+            <a href="contact.html">Contact-Us</a>
+            <div class="underline"></div>
+        </nav>
+
+        <div class="country-wrapper">
+            <li class="country-selector">
+                <button id="countryBtn" type="button" class="country-btn">
+                    <img id="countryFlag" src="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg" />
+                    <span id="countryName">Nigeria</span>
+                </button>
+
+                <div id="countryMenu" class="country-menu">
+                    <button onclick="selectCountry('Nigeria','https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg">
+                        <a href="https://ng.tyktt.com">Nigeria</a>
+                    </button>
+
+                    <button onclick="selectCountry('Ghana','https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg">
+                        <a href="https://gh.tyktt.com">Ghana</a>
+                    </button>
+                </div>
+            </li>
+        </div>
+    </div>
+    <button class="menu-toggle" id="navToggle">☰</button>
+</header>
+
+
+<section class="heroabout">
+    <!-- <h6 class="fade-up">Explore the World with</h6><br> -->
+    <h1>About Us</h1>
+
+    
+    <div class="description">
+      <h6>
+        Travel Yakata is your trusted home for affordable flights, hotels, travel packages, and all your travel essentials. We are a highly dedicated and professional team committed to providing effective and efficient travel information and application services for both business and tourist travelers. Our services range from visa assistance to flight/hotel booking and tour packages, ensuring that your trip is successful and memorable.
+      </h6><br>
+    </div>
+    <!-- <div class="stats fade-up delay-1">
+        <div class="stat"><h2>2.2k+</h2><p>Happy Clients</p></div>
+        <div class="stat"><h2>23</h2><p>Aircraft</p></div>
+        <div class="stat"><h2>3.6k+</h2><p>Bookings</p></div>
+    </div> -->
+
+    <!-- <div class="booking-card fade-up delay-2">
+        <h3>Book your flight!</h3>
+
+        <div class="trip-type">
+            <button class="active">One way</button>
+            <button>Round Trip</button>
+            <button>Multi-city</button>
+        </div>
+
+        <div class="booking-form">
+            <select id="fromCity"></select>
+            <select id="toCity"></select>
+            <input type="date">
+            <select>
+                <option>1 Adult</option>
+                <option>2 Adults</option>
+                <option>3 Adults</option>
+            </select>
+            <button class="book-btn" onclick="bookJet()">Book Jet →</button>
+        </div>
+    </div> -->
+</section>
+
+
+<section class="travel-section">
+    <div class="container">
+        <div class="content">
+            <!-- <span class="tag">With TravelYakata</span> -->
+            
+            <h1>
+                About TravelYakata & Our Services.
+            </h1>
+
+            <p>
+              Travel Yakata is a world class traveling agency that offers quality services with international norms. We are passionate about helping people explore the world at affordable costs, our goal is to make travel accessible and enjoyable for everyone.Our Vision is to continually provide a vast array of innovative ideas and quality services, Travel Yakata commits itself as a leader in promoting the enrichment of mankind on the journey into this twenty first century.Travel Yakata was founded by partners who shared a love of travel. After years of working in the corporate world, we decided to follow our passion and start our own travel company.We wanted to create a business that would help others experience the same joy and wonder we felt and still feel when we travel.
+            </p>
+
+            <!-- <a href="#" class="btn">Book Jet</a> -->
+        </div>
+        <div class="image-wrapper">
+            <img src="./img/back.png" alt="Airport">
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section class="design-section">
+  <div class="design-container">
+    <div class="section-header fade-up">
+      <h2>Why Choose TravelYakata?</h2>
+      <p>Experience luxury, convenience, and excellence in every flight</p>
+      <span class="divider"></span>
+    </div>
+
+    <div class="design-grid">
+      <!-- Feature 1 -->
+      <div class="design-card fade-up delay-1">
+        <div class="design-icon">✈️</div>
+        <h3>Seamless Booking</h3>
+        <p>Intuitive interface that lets you find and book private jets in seconds — no complicated forms.</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="design-card fade-up delay-1">
+        <div class="design-icon">🌟</div>
+        <h3>Luxury Aesthetics</h3>
+        <p>Clean layouts, elegant typography, and high-quality visuals that reflect the premium nature of private travel.</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="design-card fade-up delay-2">
+        <div class="design-icon">⚡</div>
+        <h3>Lightning Fast</h3>
+        <p>Optimized performance with smooth animations and quick loading — because your time is valuable.</p>
+      </div>
+
+      <!-- Feature 4 -->
+      <!-- <div class="design-card fade-up delay-2">
+        <div class="design-icon">📱</div>
+        <h3>Fully Responsive</h3>
+        <p>Perfect experience on any device — from phones to large desktop screens.</p>
+      </div> -->
+<!-- 
+      <div class="design-card fade-up delay-2">
+        <div class="design-icon">📱</div>
+        <h3>Fully Responsive</h3>
+        <p>Perfect experience on any device — from phones to large desktop screens.</p>
+      </div> -->
+
+      <!-- <div class="design-card fade-up delay-2">
+        <div class="design-icon">📱</div>
+        <h3>Fully Responsive</h3>
+        <p>Perfect experience on any device — from phones to large desktop screens.</p>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="travel-hero">
+  <div class="hero-content">
+    <h1>Welcome To Travel Yakata</h1>
+      Your home for affordable flights, hotels, travel packages and every travel needs.
+
+    
+    <div class="description">
+      <p>
+        We are a highly dedicated and professional team on travel services, committed
+        to providing effective and efficient travel information and application services
+        for both business and tourist travelers, ranging from visa assistants to
+        flight/hotel booking and tour packages, and ensuring a successful trip is
+        attained.
+      </p>
+    </div><br>
+    <a href="#" class="btn">Book Now</a>
+  </div>
+
+  <!-- Video placeholder – replace src with your video file -->
+  <div class="hero-video">
+    <video autoplay muted loop playsinline>
+      <source src="./img/ii1.mp4" type="video/mp4">
+      <!-- Optional fallback -->
+      <source src="./img/ii2.mp4" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+
+
+<section class="tour-guides-section">
+  <div class="tour-guides-container">
+    <div class="section-title">
+      <h2>Meet Our <span>Pioneers</span></h2>
+      <p>Destinations worth exploring! Here are wonderful Pioneers</p>
+    </div>
+
+    <div class="guides-grid">
+      <!-- Guide 1 -->
+      <div class="guide-card">
+        <div class="guide-image">
+          <!-- Replace with real photo -->
+          <img src="img/t1.png" alt="Murphy">
+        </div>
+        <div class="guide-info">
+          <h3>Murphy</h3>
+          <p class="role">CEO</p>
+          <div class="social-links">
+            <a href="#" class="social-icon x">X</a>
+            <a href="#" class="social-icon fb">f</a>
+            <a href="#" class="social-icon ig">IG</a>
+            <a href="#" class="social-icon pin">P</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Guide 2 -->
+      <div class="guide-card">
+        <div class="guide-image">
+          <img src="img/t20.png" alt="Alexis Cox">
+        </div>
+        <div class="guide-info">
+          <h3>Alexis Cox</h3>
+          <p class="role">MANAGER</p>
+          <div class="social-links">
+            <a href="#" class="social-icon x">X</a>
+            <a href="#" class="social-icon fb">f</a>
+            <a href="#" class="social-icon ig">IG</a>
+            <a href="#" class="social-icon pin">P</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Guide 3 -->
+      <div class="guide-card">
+        <div class="guide-image">
+          <img src="img/portrait1.jpg" alt="Murray">
+        </div>
+        <div class="guide-info">
+          <h3>Murray</h3>
+          <p class="role">Tourist Guide</p>
+          <div class="social-links">
+            <a href="#" class="social-icon x">X</a>
+            <a href="#" class="social-icon fb">f</a>
+            <a href="#" class="social-icon ig">IG</a>
+            <a href="#" class="social-icon pin">P</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Guide 4 -->
+      <div class="guide-card">
+        <div class="guide-image">
+          <img src="img/portrait2.jpg" alt="Crawford">
+        </div>
+        <div class="guide-info">
+          <h3>Crawford</h3>
+          <p class="role">Tourist Guide</p>
+          <div class="social-links">
+            <a href="#" class="social-icon x">X</a>
+            <a href="#" class="social-icon fb">f</a>
+            <a href="#" class="social-icon ig">IG</a>
+            <a href="#" class="social-icon pin">P</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<script src="script.js"></script>
+</body>
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- Brand -->
+        <div class="footer-col brand">
+            <img src="./img/logo.png" width="200" alt="Logo" class="footer-logo">
+            <h2>TravelYakata</h2>
+            <p>
+                Experience premium travel services, private jet bookings,
+                luxury tours, and unforgettable global adventures.
+            </p>
+
+            <div class="socials">
+                <a href="#">FB</a>
+                <a href="#">IG</a>
+                <a href="#">TW</a>
+                <a href="#">LN</a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Destinations</a></li>
+                <li><a href="#">Book a Jet</a></li>
+                <li><a href="#">Travel Insurance</a></li>
+            </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-col newsletter">
+            <h4>Stay Updated</h4>
+            <p>Get travel deals & luxury offers directly in your inbox.</p>
+
+            <form>
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 TravelYakata. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</html>

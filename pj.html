@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Travel Yakata</title>
+    <link rel="stylesheet" href="css/pj.css"/>
+</head>
+<body>
+
+
+<header class="navbar fade-down">
+    <span class="logos">
+        <img src="./img/logo.png" alt="Logo" />
+    </span>
+    <div class="nav-and-country">
+        <nav id="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="pj.html">Private-Jets</a>
+            <a href="http://tyktt.com/">Affilates</a>
+            <a href="contact.html">Contact-Us</a>
+            <div class="underline"></div>
+        </nav>
+
+        <div class="country-wrapper">
+            <li class="country-selector">
+                <button id="countryBtn" type="button" class="country-btn">
+                    <img id="countryFlag" src="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg" />
+                    <span id="countryName">Nigeria</span>
+                </button>
+
+                <div id="countryMenu" class="country-menu">
+                    <button onclick="selectCountry('Nigeria','https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg">
+                        <a href="https://ng.tyktt.com">Nigeria</a>
+                    </button>
+
+                    <button onclick="selectCountry('Ghana','https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg">
+                        <a href="https://gh.tyktt.com">Ghana</a>
+                    </button>
+                </div>
+            </li>
+        </div>
+    </div>
+    <button class="menu-toggle" id="navToggle">☰</button>
+</header>
+
+
+<section class="hero">
+    <!-- <h6 class="fade-up">Explore the World with</h6><br> -->
+    <h1>Private-Jets</h1>
+    <!-- <div class="stats fade-up delay-1">
+        <div class="stat"><h2>2.2k+</h2><p>Happy Clients</p></div>
+        <div class="stat"><h2>23</h2><p>Aircraft</p></div>
+        <div class="stat"><h2>3.6k+</h2><p>Bookings</p></div>
+    </div> -->
+
+    <div class="booking-card fade-up delay-2">
+        <h3>Book your flight!</h3>
+
+        <div class="trip-type">
+            <button class="active">One way</button>
+            <button>Round Trip</button>
+        </div>
+
+        <div class="booking-form">
+            <select id="fromCity"></select>
+            <select id="toCity"></select>
+            <input type="date">
+            <select>
+                <option>1 Adult</option>
+                <option>2 Adults</option>
+                <option>3 Adults</option>
+            </select>
+            <button class="book-btn" onclick="bookJet()">Book Jet →</button>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="fleet-container">
+
+  <div class="fleet-grid">
+
+    <!-- AW109E -->
+    <div class="aircraft-card">
+      <img src="img/coon.png" alt="AW109E">
+
+      <div class="card-content">
+        <h2>AW109E</h2>
+
+        <div class="aircraft-stats">
+          <div class="stat-box">
+            <h3>6</h3>
+            <p>Seats</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>168 knots</h3>
+            <p>Speed</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>30 cubic feet</h3>
+            <p>Range</p>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span>Click to view details</span>
+          <div class="details-btn">→</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Phenom 300 -->
+    <div class="aircraft-card">
+      <img src="img/jet1.png" alt="Phenom 300">
+
+      <div class="card-content">
+        <h2>Phenom 300</h2>
+
+        <div class="aircraft-stats">
+          <div class="stat-box">
+            <h3>7</h3>
+            <p>Seats</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>451 knots</h3>
+            <p>Speed</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>76 cubic feet</h3>
+            <p>Range</p>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span>Click to view details</span>
+          <div class="details-btn">→</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Hawker 850XP -->
+    <div class="aircraft-card">
+      <img src="img/jet2.png" alt="Hawker 850XP">
+
+      <div class="card-content">
+        <h2>Hawker 850XP</h2>
+
+        <div class="aircraft-stats">
+          <div class="stat-box">
+            <h3>8</h3>
+            <p>Seats</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>448 knots</h3>
+            <p>Speed</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>50 cubic feet</h3>
+            <p>Range</p>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span>Click to view details</span>
+          <div class="details-btn">→</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- CTA SECTION -->
+  <div class="fleet-cta">
+    <p>Explore our complete fleet and find the perfect aircraft for your next journey</p>
+    <button>View Complete Fleet →</button>
+  </div>
+
+</section>
+
+
+
+
+
+
+<section class="travel-section">
+    <div class="container">
+        
+        <div class="image-wrapper">
+            <img src="./img/pl.jpg" alt="Airport">
+        </div>
+
+        <div class="content">
+            <span class="tag">TOUR THE WORLD</span>
+            
+            <h1>
+                Affordable Flights And Travel 
+                Services For You.
+            </h1>
+
+            <p>
+                Get the opportunity to book affordable tickets, the right insurance, 
+                participate in tours and relax in nice hotels. Enjoy an international 
+                experience with memorable glimpse into local cultures, history, and 
+                entertainment.
+            </p>
+
+            <a href="#" class="btn">Book Jet</a>
+        </div>
+    </div>
+</section>
+
+
+<script src="script.js"></script>
+</body>
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- Brand -->
+        <div class="footer-col brand">
+            <img src="./img/logo.png" width="200" alt="Logo" class="footer-logo">
+            <h2>TravelYakata</h2>
+            <p>
+                Experience premium travel services, private jet bookings,
+                luxury tours, and unforgettable global adventures.
+            </p>
+
+            <div class="socials">
+                <a href="#">FB</a>
+                <a href="#">IG</a>
+                <a href="#">TW</a>
+                <a href="#">LN</a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Destinations</a></li>
+                <li><a href="#">Book a Jet</a></li>
+                <li><a href="#">Travel Insurance</a></li>
+            </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-col newsletter">
+            <h4>Stay Updated</h4>
+            <p>Get travel deals & luxury offers directly in your inbox.</p>
+
+            <form>
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 TravelYakata. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact Us - Travel Yakata</title>
+    <link rel="stylesheet" href="css/About.css"/> <!-- your existing stylesheet -->
+    <style>
+        /* ======================
+           Contact Page Specific Styles
+           ====================== */
+        .contact-hero {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('./img/contact-bg.jpg') center/cover no-repeat;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 120px 5% 80px;
+        }
+
+        .contact-hero h1 {
+            font-size: 4.2rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.7);
+        }
+
+        .contact-hero p {
+            font-size: 1.4rem;
+            max-width: 720px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .contact-content {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .contact-info-card {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 50px 40px;
+            color: #e2e8f0;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 40px;
+        }
+
+        .info-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #2f80ed, #60a5fa);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            margin-right: 24px;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: #93c5fd;
+        }
+
+        .info-text p, .info-text a {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+
+        .info-text a:hover {
+            color: #60a5fa;
+        }
+
+        /* Form Styling */
+        .contact-form {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px 45px;
+            border: 1px solid rgba(96, 165, 250, 0.15);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        }
+
+        .form-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #cbd5e1;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.18);
+        }
+
+        textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(90deg, #2f80ed, #60a5fa);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(47, 128, 237, 0.4);
+        }
+
+        .form-message {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        .success { background: rgba(34,197,94,0.2); color: #86efac; border: 1px solid #22c55e; }
+        .error   { background: rgba(239,68,68,0.2); color: #fca5a5; border: 1px solid #ef4444; }
+
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-form {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-hero h1 { font-size: 3rem; }
+            .contact-content { padding: 80px 5% 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Your existing header -->
+<header class="navbar fade-down">
+    <span class="logos">
+        <img src="./img/logo.png" alt="Logo" />
+    </span>
+    <div class="nav-and-country">
+        <nav id="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="pj.html">Private-Jets</a>
+            <a href="http://tyktt.com/">Affilates</a>
+            <a href="contact.html">Contact-Us</a>
+            <div class="underline"></div>
+        </nav>
+
+        <div class="country-wrapper">
+            <li class="country-selector">
+                <button id="countryBtn" type="button" class="country-btn">
+                    <img id="countryFlag" src="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg" />
+                    <span id="countryName">Nigeria</span>
+                </button>
+
+                <div id="countryMenu" class="country-menu">
+                    <button onclick="selectCountry('Nigeria','https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg">
+                        <a href="https://ng.tyktt.com">Nigeria</a>
+                    </button>
+
+                    <button onclick="selectCountry('Ghana','https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg">
+                        <a href="https://gh.tyktt.com">Ghana</a>
+                    </button>
+                </div>
+            </li>
+        </div>
+    </div>
+    <button class="menu-toggle" id="navToggle">☰</button>
+</header>
+
+    <main>
+        <!-- Hero Section -->
+<section class="heroabout">
+    <!-- <h6 class="fade-up">Explore the World with</h6><br> -->
+    <h1>Contact Us</h1>
+
+    
+    <div class="description">
+      <h6>
+        We’re here to help make your travel dreams a reality! Whether you have questions about flights, hotels, visa assistance, tour packages, or anything in between, our dedicated team is ready to assist. Reach out today — we respond quickly and look forward to serving you.
+      </h6><br>
+    </div>
+    <!-- <div class="stats fade-up delay-1">
+        <div class="stat"><h2>2.2k+</h2><p>Happy Clients</p></div>
+        <div class="stat"><h2>23</h2><p>Aircraft</p></div>
+        <div class="stat"><h2>3.6k+</h2><p>Bookings</p></div>
+    </div> -->
+
+    <!-- <div class="booking-card fade-up delay-2">
+        <h3>Book your flight!</h3>
+
+        <div class="trip-type">
+            <button class="active">One way</button>
+            <button>Round Trip</button>
+            <button>Multi-city</button>
+        </div>
+
+        <div class="booking-form">
+            <select id="fromCity"></select>
+            <select id="toCity"></select>
+            <input type="date">
+            <select>
+                <option>1 Adult</option>
+                <option>2 Adults</option>
+                <option>3 Adults</option>
+            </select>
+            <button class="book-btn" onclick="bookJet()">Book Jet →</button>
+        </div>
+    </div> -->
+</section>
+
+        <!-- Main Contact Content -->
+        <section class="contact-content">
+            <div class="contact-grid">
+
+                <!-- Contact Information -->
+                <div class="contact-info-card">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone-volume"></i></div>
+                        <div class="info-text">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+2348099355222">+234-809-935-5222</a></p>
+                            <p><a href="tel:+233507614249">+233-507-614-249</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info.ng@travelyakata.com">info.ng@travelyakata.com</a></p>
+                            <p><a href="mailto:info.gh@travelyakata.com">info.gh@travelyakata.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-location-dot"></i></div>
+                        <div class="info-text">
+                            <h4>Our Office</h4>
+                            <p>Suite 7B, Level 3, Dominion Plaza,Nicole Balogun Street, Igbo-Efon, Lekki, Lagos.
+
+                            </p>
+                            <p>Shop 9, Adom Plaza,Plot 18700 Spintex Road,Rainbow Junction Baatsona Spintex GT-358-8558, Accra Ghana.</p>
+                            <!-- <p>Lagos, Nigeria</p> -->
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div class="info-text">
+                            <h4>Working Hours</h4>
+                            <p>Monday – Saturdday: 9:00 AM – 6:00 PM</p>
+                            <p>Sunday: 10:00 AM – 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2 class="form-title">Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" required placeholder="Your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" required placeholder="your@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+234 123 456 7890">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Booking Inquiry / General Question">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" required placeholder="Tell us about your travel needs..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Your existing footer -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- Brand -->
+        <div class="footer-col brand">
+            <img src="./img/logo.png" width="200" alt="Logo" class="footer-logo">
+            <h2>TravelYakata</h2>
+            <p>
+                Experience premium travel services, private jet bookings,
+                luxury tours, and unforgettable global adventures.
+            </p>
+
+            <div class="socials">
+                <a href="#">FB</a>
+                <a href="#">IG</a>
+                <a href="#">TW</a>
+                <a href="#">LN</a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Destinations</a></li>
+                <li><a href="#">Book a Jet</a></li>
+                <li><a href="#">Travel Insurance</a></li>
+            </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-col newsletter">
+            <h4>Stay Updated</h4>
+            <p>Get travel deals & luxury offers directly in your inbox.</p>
+
+            <form>
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 TravelYakata. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <!-- Your existing script -->
+    <script src="script.js"></script>
+</body>
+</html>
