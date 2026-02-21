@@ -1,0 +1,1714 @@
+/* ====================== GLOBAL STYLES START ====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: white;
+}
+/* ====================== GLOBAL STYLES END ====================== */
+
+
+/* ====================== PRELOADER STYLES START ====================== */
+/* BLUE CIRCULAR PRELOADER (alternative) */
+.blue-preloader {
+    position: fixed;
+    inset: 0;
+    background: #f3f8ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.blue-spinner {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotateSpinner 1.2s linear infinite;
+}
+
+.blue-spinner::before,
+.blue-spinner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+}
+
+.blue-spinner::before {
+    border: 6px solid rgba(47, 128, 237, 0.2);
+}
+
+.blue-spinner::after {
+    border: 6px solid transparent;
+    border-top-color: #2f80ed;
+    border-right-color: #2f80ed;
+    animation: spinGlow 0.9s ease-in-out infinite;
+}
+
+/* Add transition for smooth fade */
+.blue-preloader {
+    position: fixed;
+    inset: 0;
+    background: #f3f8ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    pointer-events: all;
+}
+
+.blue-preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Animations */
+@keyframes rotateSpinner {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spinGlow {
+    0%   { transform: rotate(0deg); opacity: 0.6; }
+    50%  { opacity: 1; }
+    100% { transform: rotate(360deg); opacity: 0.6; }
+}
+
+/* MAIN PRELOADER (used in your HTML) */
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: #f8fbff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    opacity: 1;
+    transition: opacity 0.7s ease-out;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.spinner {
+    width: 70px;
+    height: 70px;
+    border: 8px solid rgba(47, 128, 237, 0.2);
+    border-top: 8px solid #2f80ed;
+    border-radius: 50%;
+    animation: spin 1.1s linear infinite;
+}
+
+.spinner-container, .spinner-rotator, .spinner-left, .spinner-right, .spinner-circle { /* old spinner parts kept exactly as you had */
+    /* ... all your original spinner rules ... */
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+/* ====================== PRELOADER STYLES END ====================== */
+
+
+/* ====================== HEADER / NAVBAR STYLES START ====================== */
+.logos img {
+    height: 57px;
+    width: 157px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    background: #fff;
+    color: #222;
+    position: relative;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-and-country {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+.navbar nav a {
+    position: relative;
+    padding-bottom: 4px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #2f80ed;
+}
+
+.navbar nav .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: #2f80ed;
+    width: 0;
+    transition: all 0.3s ease;
+    border-radius: 1px;
+}
+
+.country-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Old logo styles (kept untouched) */
+.logo { font-size: 26px; font-weight: bold; }
+.logo span { color: #2f80ed; }
+.signup { background: #2f80ed; color: white; border: none; padding: 8px 18px; border-radius: 20px; cursor: pointer; }
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* COUNTRY SELECTOR */
+.country-selector {
+    position: relative;
+    list-style: none;
+}
+
+.country-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.country-btn img {
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.country-menu {
+    position: absolute;
+    right: 0;
+    top: 110%;
+    width: 220px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.13);
+    display: none;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.country-menu button {
+    width: 100%;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.country-menu a {
+    text-decoration: none;
+    font-weight: 480;
+    color: #222;
+}
+
+.country-menu button:hover {
+    background: #f4f4f4;
+}
+
+.country-menu img {
+    width: 28px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Premium Nav Hover (your latest addition) */
+.navbar nav a {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding-bottom: 6px;
+    transition: color 0.35s ease;
+}
+
+.navbar nav a:hover {
+    color: #2f80ed;
+}
+
+.navbar nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2f80ed, #60a5fa);
+    border-radius: 2px;
+    transition: all 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translateX(-50%);
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+}
+
+.navbar nav .underline {
+    display: none;
+}
+
+/* Mobile Responsive for Navbar */
+@media (max-width: 900px) {
+    .menu-toggle { display: block; }
+    nav {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 65px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 15px;
+    }
+    nav.show { display: flex; }
+}
+
+
+/* ====================== MOBILE MENU – RESPONSIVE HEADER ====================== */
+
+/* Hamburger button – hidden on desktop */
+.menu-toggle {
+    display: none;
+    font-size: 32px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    padding: 8px;
+    line-height: 1;
+}
+
+/* Hide nav links on mobile by default */
+@media (max-width: 991px) {
+
+    /* Show hamburger */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hide horizontal nav */
+    .navbar nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        border-radius: 0 0 12px 12px;
+        z-index: 99;
+    }
+
+    /* When menu is open */
+    .navbar nav.show {
+        display: flex;
+    }
+
+    .navbar nav a {
+        padding: 14px 20px;
+        font-size: 17px;
+        border-bottom: 1px solid #eee;
+        transition: background 0.2s;
+    }
+
+    .navbar nav a:last-child {
+        border-bottom: none;
+    }
+
+    .navbar nav a:hover {
+        background: #f8f9ff;
+    }
+
+    /* Country selector – make it smaller & better aligned on mobile */
+    .country-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .country-btn img {
+        width: 22px;
+        height: 14px;
+    }
+
+    .country-menu {
+        right: 10px;
+        width: 200px;
+    }
+
+    /* Adjust overall header padding on small screens */
+    .navbar {
+        padding: 14px 20px;
+    }
+
+    .logos img {
+        height: 48px;
+        width: auto;
+    }
+
+    /* Make sure nav-and-country stays aligned */
+    .nav-and-country {
+        gap: 16px;
+    }
+}
+@media (max-width: 991px) {
+
+    /* ... your existing rules ... */
+
+    /* === NEW: Push country selector right next to the toggle === */
+    .nav-and-country {
+        margin-left: auto;           /* pushes it all the way to the right */
+        margin-right: 7px;          /* controls closeness to the ☰ button */
+    }
+
+    /* Optional: make them even tighter if you want */
+    /* .nav-and-country { margin-right: 8px; } */
+}
+
+/* Make sure underline doesn't interfere on mobile */
+@media (max-width: 991px) {
+    .navbar nav .underline {
+        display: none;
+    }
+    .navbar nav a::after {
+        display: none;   /* disable fancy hover line on mobile if you want */
+    }
+}
+/* ====================== HEADER / NAVBAR STYLES END ====================== */
+
+
+/* HERO */
+.hero {
+    position: relative;              /* important */
+    min-height: 83vh;
+    padding: 80px 50px;
+    background: url("../img/imag.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 2% 2% 0% 0%;
+    overflow: hidden;                /* clips overlay to radius */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: inherit;          /* match hero radius */
+    z-index: 1;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+button span{
+    text-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    font-style: inherit;
+    font-weight: 600;
+}
+.hero h1 {
+    text-align: center;
+    font-size: 86px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.55);
+    margin-bottom: 15px;
+}
+
+
+.hero-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #ffffff;
+  color: #0a3d62;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #0a3d62;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+
+.hero h6 {
+    font-size: 18px;
+    font-weight: 500;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.55);
+    padding-top: 9px;
+    margin-bottom: -20px;
+}
+/* STATS */
+.stats {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.stat {
+    background: rgba(255,255,255,0.15);
+    padding: 20px 40px;
+    border-radius: 18px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); /* Safari support */
+}
+
+/* BOOKING */
+.booking-card {
+    background: rgba(0,0,0,0.7);
+    padding: 30px;
+    border-radius: 22px;
+    max-width: 950px;
+}
+
+.trip-type {
+    margin: 15px 0;
+}
+
+.trip-type button {
+    background: transparent;
+    border: 1px solid #aaa;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.trip-type .active {
+    font-weight: 600;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background: white;
+    color: black;
+}
+
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.booking-form select,
+.booking-form input {
+    padding: 12px;
+    border-radius: 14px;
+    border: none;
+}
+
+.book-btn {
+    background: #2f80ed;
+    color: white;
+    border: none;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .booking-form {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 65px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    /* Adjust nav-and-country for mobile */
+    .nav-and-country {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* COUNTRY SELECTOR - UNCHANGED */
+.country-selector {
+    position: relative;
+    list-style: none;
+}
+
+.country-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.country-btn img {
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.arrow {
+    font-size: 12px;
+    margin-left: auto;
+}
+
+.country-menu {
+    position: absolute;
+    right: 0;
+    top: 110%;
+    width: 220px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.13);
+    display: none;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.country-menu button {
+    width: 100%;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.country-menu a{
+    text-decoration: none;
+    font-weight: 480;
+    color:#222
+}
+
+
+.country-menu button:hover {
+    background: #f4f4f4;
+}
+
+.country-menu img {
+    width: 28px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* PRELOADER */
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: #f3f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+.spinner-container {
+    width: 100%;
+    height: 100%;
+    animation: rotate 2s linear infinite;
+}
+
+.spinner-rotator {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.spinner-left,
+.spinner-right {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.spinner-left {
+    left: 0;
+}
+
+.spinner-right {
+    right: 0;
+}
+
+.spinner-circle {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #2f80ed;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: spin 1.3s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.travel-section {
+    margin-top: 15px;
+    padding: 80px 0;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Image */
+.image-wrapper {
+    flex: 1;
+}
+
+.image-wrapper img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+}
+
+/* Content */
+.content {
+    flex: 1;
+}
+
+.tag {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #2f80ed;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.3;
+    margin-bottom: 25px;
+}
+
+.content p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    background-color: #2f80ed;
+    align-self: center;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #3b8d9b;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content h1 {
+        font-size: 34px;
+    }
+}
+
+
+.destinations {
+    margin-top: 10px;
+    margin-bottom: 12px;
+    padding: 80px 5%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-auto-rows: 280px;
+    gap: 25px;
+}
+
+.destinations .section-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.destinations .section-header h2 {
+    font-size: 48px;
+    color: #2f80ed;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.destinations .section-header p {
+    font-size: 20px;
+    color: #4a5d73;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.destinations .section-header .divider {
+    display: block;
+    width: 90px;
+    height: 5px;
+    background: #2f80ed;
+    margin: 30px auto 0;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Card Base */
+.card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    /* ✨ Softer layered shadow */
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12),
+        0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Large Left Card */
+.card.large {
+    grid-row: span 2;
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    inset: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.1)
+    );
+    color: #fff;
+    transition: background 0.4s ease;
+}
+
+.overlay h2,
+.overlay h3 {
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.overlay h2 {
+    font-size: 32px;
+}
+
+.overlay h3 {
+    font-size: 22px;
+}
+
+.overlay p {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Hover Effects */
+.card:hover {
+    transform: translateY(-12px) scale(1.03);
+
+    /* Deeper hover shadow */
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        0 35px 80px rgba(0, 0, 0, 0.3);
+}
+
+
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+}
+
+
+
+.card:hover .overlay {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.2)
+    );
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card.large {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card.large {
+        grid-column: span 1;
+    }
+}
+
+
+.travel-hero {
+  position: relative;
+  min-height: 80vh;           /* or 100vh for full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  background: #0d3986;        /* fallback dark color in case video fails */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 2rem 1.5rem;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin: 0 0 1.2rem 0;
+  font-weight: 700;
+  line-height: 1.1;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  margin: 0 0 2rem 0;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+.description {
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 950px;
+  margin: 0 auto;
+  opacity: 0.92;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* or contain – depending on your preference */
+  object-position: center;
+}
+
+/* Optional: slight dark overlay to improve text readability */
+.travel-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* adjust opacity 0.3–0.6 */
+  z-index: 1;
+}
+
+/* Make sure text stays above overlay & video */
+.hero-content {
+  z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.6rem;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .description {
+
+    font-size: 1.05rem;
+  }
+}
+
+
+
+.footer {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #fff;
+    padding: 80px 5% 30px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.footer h4 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.footer p {
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Links */
+.footer ul {
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 12px;
+}
+
+.footer ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: #3b82f6;
+    padding-left: 5px;
+}
+
+/* Socials */
+.socials {
+    margin-top: 20px;
+}
+
+.socials a {
+    display: inline-block;
+    margin-right: 12px;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 13px;
+    transition: 0.3s ease;
+}
+
+.socials a:hover {
+    background: #3b82f6;
+    transform: translateY(-3px);
+}
+
+/* Newsletter */
+.newsletter form {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.newsletter button {
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: none;
+    background: #3b82f6;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.newsletter button:hover {
+    background: #2563eb;
+}
+
+/* Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: #f8fbff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    opacity: 1;
+    transition: opacity 0.7s ease-out;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;     /* extra safety */
+}
+
+.spinner {
+    width: 70px;
+    height: 70px;
+    border: 8px solid rgba(47, 128, 237, 0.2);
+    border-top: 8px solid #2f80ed;
+    border-radius: 50%;
+    animation: spin 1.1s linear infinite;
+    /* box-shadow: 0 6px 20px rgba(47, 128, 237, 0.3); */
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+/* ───────────────────────────────────────────────
+   PREMIUM NAV HOVER – decorative sliding border bottom
+   ─────────────────────────────────────────────── */
+.navbar nav a {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding-bottom: 6px;
+    transition: color 0.35s ease;
+}
+
+.navbar nav a:hover {
+    color: #2f80ed;
+}
+
+.navbar nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2f80ed, #60a5fa); /* premium gradient */
+    border-radius: 2px;
+    /* box-shadow: 0 2px 8px rgba(47, 128, 237, 0.4); */
+    transition: all 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* elastic overshoot */
+    transform: translateX(-50%);
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+}
+
+/* Remove old underline if you had it */
+.navbar nav .underline {
+    display: none;   /* or just delete this block */
+}
+
+/* Rest of your existing CSS remains unchanged below... */
+
+
+
+
+
+/* ───────────────────────────────────────────────
+   DESIGN / FEATURES SECTION
+   ─────────────────────────────────────────────── */
+.design-section {
+    padding: 100px 5%;
+    background: #f8fbff;
+    position: relative;
+    overflow: hidden;
+}
+
+.design-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-header h2 {
+    font-size: 48px;
+    color: #2f80ed;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.section-header p {
+    font-size: 20px;
+    color: #4a5d73;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.divider {
+    display: block;
+    width: 90px;
+    height: 5px;
+    background: #2f80ed;
+    margin: 30px auto 0;
+    border-radius: 3px;
+}
+
+/* Grid */
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.design-card {
+    background: white;
+    border-radius: 20px;
+    padding: 45px 35px;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.design-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 60px rgba(47, 128, 237, 0.15);
+}
+
+.design-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px;
+    font-size: 42px;
+    line-height: 80px;
+    background: linear-gradient(135deg, #2f80ed, #60a5fa);
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(47, 128, 237, 0.25);
+    transition: transform 0.4s ease;
+}
+
+.design-card:hover .design-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.design-card h3 {
+    font-size: 26px;
+    color: #2f80ed;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.design-card p {
+    font-size: 16px;
+    color: #5a7189;
+    line-height: 1.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .design-section {
+        padding: 80px 5%;
+    }
+
+    .section-header h2 {
+        font-size: 38px;
+    }
+
+    .section-header p {
+        font-size: 18px;
+    }
+
+    .design-card {
+        padding: 40px 25px;
+    }
+}
+
+
+
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+
+
+.tour-guides-section {
+  padding: 60px 5%;               /* Further reduced padding */
+  background: #f8f9ff;
+  text-align: center;
+}
+
+.tour-guides-container {
+  max-width: 1200px;              /* Tighter container for desktop */
+  margin: 0 auto;
+}
+
+.section-title h2 {
+  font-size: 36px;                /* Reduced again – cleaner on large screens */
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.section-title h2 span {
+  color: #ff8c00;                 /* orange accent */
+}
+
+.section-title p {
+  font-size: 17px;                /* Slightly smaller subtitle */
+  color: #555;
+  margin-bottom: 40px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid – more compact */
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));  /* Smaller min-width */
+  gap: 20px;                      /* Tighter gaps */
+}
+
+.guide-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);  /* Softer shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guide-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+}
+
+.guide-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.guide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.guide-card:hover .guide-image img {
+  transform: scale(1.08);
+}
+
+.guide-info {
+  padding: 18px 16px 24px;        /* Tighter internal padding */
+}
+
+.guide-info h3 {
+  font-size: 21px;                /* Smaller name */
+  margin: 0 0 6px;
+  color: #2f80ed;
+  font-weight: 600;
+}
+
+.guide-info .role {
+  color: #777;
+  font-size: 14px;                /* Smaller role text */
+  margin: 0 0 14px;
+}
+
+/* Social icons – more compact */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;                      /* Reduced gap */
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;                    /* Smaller icons */
+  height: 34px;
+  border-radius: 50%;
+  background: #f0f4ff;
+  color: #2f80ed;
+  font-size: 15px;                /* Slightly smaller font */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: #2f80ed;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Brand hover colors */
+.social-icon.x:hover    { background: #000000; }
+.social-icon.fb:hover   { background: #1877f2; }
+.social-icon.ig:hover   { background: #e1306c; }
+.social-icon.pin:hover  { background: #e60023; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .section-title h2 {
+    font-size: 32px;
+  }
+  .guides-grid {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tour-guides-section {
+    padding: 50px 5%;
+  }
+  .section-title h2 {
+    font-size: 30px;
+  }
+  .section-title p {
+    font-size: 16px;
+    margin-bottom: 35px;
+  }
+  .guide-info {
+    padding: 16px 14px 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title h2 {
+    font-size: 26px;
+  }
+  .section-title p {
+    font-size: 15px;
+  }
+  .guides-grid {
+    grid-template-columns: 1fr;   /* Single column on very small screens */
+  }
+}
+
+
+
+
+                   /* //////ABOUT PAGE////// */
+
+
+/* HERO */
+.heroabout {
+    position: relative;              /* important */
+    min-height: 35vh;
+    padding: 80px 50px;
+    background: url("../img/imagekkk.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 2% 2% 0% 0%;
+    overflow: hidden;                /* clips overlay to radius */
+}
+
+.heroabout::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: inherit;          /* match hero radius */
+    z-index: 1;
+}
+
+.heroabout > * {
+    position: relative;
+    z-index: 2;
+}
+
+.heroabout h1 {
+    text-align: center;
+    font-size: 86px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.55);
+    margin-bottom: 15px;
+}
+
+
+.heroabout h6 {
+    font-size: 18px;
+    font-weight: 500;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.55);
+    padding-top: 9px;
+    margin-bottom: -20px;
+}
+/* STATS */
+
+
+/* Hero Responsive */
+/* ────────────────────────────────────────────────
+   Hero — Mobile & Tablet improvements only
+   Desktop stays almost identical to your original
+──────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+    .heroabout {
+        min-height: 75vh;           /* slightly less aggressive height */
+        padding: 90px 6% 70px;      /* more breathing room on sides */
+    }
+
+    .heroabout h1 {
+        font-size: 5.8rem;          /* big but not insane on tablets */
+        line-height: 1.05;
+        margin-bottom: 1.4rem;
+    }
+
+    .heroabout .description h6,
+    .heroabout .description p {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroabout {
+        min-height: 70vh;
+        padding: 100px 5% 60px;     /* more top space under navbar */
+        border-radius: 0;           /* remove rounded corners on small screens */
+    }
+
+    .heroabout h1 {
+        font-size: 3.8rem;          /* good phone size */
+        margin-bottom: 1.2rem;
+    }
+
+    .heroabout .description h6,
+    .heroabout .description p {
+        font-size: 1.1rem;
+        line-height: 1.55;
+    }
+
+    .btn-primary {
+        padding: 1rem 2.4rem;
+        font-size: 1.05rem;
+        min-width: 220px;           /* prevents tiny button */
+    }
+}
+
+@media (max-width: 480px) {
+    .heroabout {
+        min-height: 65vh;
+        padding: 90px 5% 50px;
+    }
+
+    .heroabout h1 {
+        font-size: 2.9rem;
+        line-height: 1.1;
+    }
+
+    .heroabout .description h6,
+    .heroabout .description p {
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+        max-width: 300px;
+        margin: 1.5rem auto 0;
+        display: block;             /* centered full-width feel on tiny phones */
+    }
+}
+/* Hero top corners rounded ONLY on mobile/small screens */
+@media (max-width: 991px) {
+    .heroabout {
+        border-radius: 16px 16px 0px 0px;   /* rounded TOP corners on mobile */
+        /* or if you really meant TOP edges (less common but possible): */
+        /* border-radius: 24px 24px 0 0; */
+    }
+    
+    /* Optional: make sure the overlay follows the same radius */
+    .heroabout::before {
+        border-radius: inherit;         /* already has this in your code, but just to be sure */
+    }
+}
+/* ====================== HERO SECTION STYLES END ====================== */
+
